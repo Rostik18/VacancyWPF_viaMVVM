@@ -14,33 +14,39 @@
             <Setter Property="FontSize" Value="14" />
         </Style>
     </Window.Resources>
+    <Window.DataContext>
+        <local:WorkerViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="0.8*" />
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Column="0" ItemsSource="{Binding Phones}"
-                 SelectedItem="{Binding SelectedPhone}">
+        <ListBox Name="WorkersListBox" Grid.Column="0" ItemsSource="{Binding Workers}"
+                 SelectedItem="{Binding SelectedWorker}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=Title}" />
-                        <TextBlock Text="{Binding Path=Company}" />
-                        <TextBlock Text="{Binding Path=Price}" />
+                        <TextBlock FontSize="18" Text="{Binding Path=Name}" />
+                        <TextBlock Text="{Binding Path=Position}" />
+                        <TextBlock Text="{Binding Path=Year}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedPhone}">
-            <TextBlock Text="Выбранный элемент"  />
-            <TextBlock Text="Модель" />
-            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Производитель" />
-            <TextBox Text="{Binding Company, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Цена" />
-            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedWorker}">
+            <TextBlock Text="Вибраний працівник"  />
+            <TextBlock Text="Ім'я" />
+            <TextBox Text="{Binding Name}" />
+            <TextBlock Text="Позиція" />
+            <TextBox Text="{Binding Position}" />
+            <TextBlock Text="Вік" />
+            <Calendar x:Name="calendar1" FirstDayOfWeek="Monday"
+                      SelectedDate="{Binding Birthday}"/>
+            <Button Content="Add" Command="{Binding AddCommand}" />
+            <Button Content="Add to DB" Command="{Binding AddToDBCommand}"/>
         </StackPanel>
     </Grid>
 </Window>

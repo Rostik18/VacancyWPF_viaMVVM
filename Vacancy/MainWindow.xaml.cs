@@ -23,6 +23,8 @@ namespace Vacancy
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new WorkerViewModel();
         }
     }
 }

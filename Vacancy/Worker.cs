@@ -12,6 +12,9 @@ namespace Vacancy
         public string Name { get; set; }
         public string Position { get; set; }
         public DateTime Birthday { get; set; }
-
+        public int Year
+        {
+            get { return Birthday.Year; }
+        }
     }
 }
