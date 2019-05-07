@@ -1,3 +1,3 @@
-# VacancyWPF_viaMVVM
+# VacancyWPF_viaMVVM.
 but it's actually good.
 No... It`s not...
