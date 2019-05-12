@@ -1,3 +1,3 @@
 # VacancyWPF_viaMVVM.
-but it's actually good. \n
+but it's actually good. 
 No... It`s not...
